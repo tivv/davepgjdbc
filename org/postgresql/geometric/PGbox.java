@@ -6,7 +6,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $Header: /home/davec/jdbc/CVSROOT/org/postgresql/geometric/PGbox.java,v 1.5 2003/09/13 04:02:14 barry Exp $
+ *	  $PostgreSQL: /cvsroot/pgsql-server/src/interfaces/jdbc/org/postgresql/geometric/PGbox.java,v 1.5 2003/09/13 04:02:14 barry Exp $
  *
  *-------------------------------------------------------------------------
  */

@@ -9,7 +9,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $Header: /home/davec/jdbc/CVSROOT/org/postgresql/jdbc1/Attic/AbstractJdbc1Connection.java,v 1.27 2003/10/29 02:39:09 davec Exp $
+ *	  $PostgreSQL: /cvsroot/pgsql-server/src/interfaces/jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java,v 1.27 2003/10/29 02:39:09 davec Exp $
  *
  *-------------------------------------------------------------------------
  */

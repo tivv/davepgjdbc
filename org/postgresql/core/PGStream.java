@@ -7,7 +7,7 @@
  * Copyright (c) 2003, PostgreSQL Global Development Group
  *
  * IDENTIFICATION
- *	  $Header: /home/davec/jdbc/CVSROOT/org/postgresql/core/PGStream.java,v 1.3 2003/09/08 17:30:22 barry Exp $
+ *	  $PostgreSQL: /cvsroot/pgsql-server/src/interfaces/jdbc/org/postgresql/core/PGStream.java,v 1.3 2003/09/08 17:30:22 barry Exp $
  *
  *-------------------------------------------------------------------------
  */
