@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<!-- $Header: /home/davec/jdbc/CVSROOT/doc/pgjdbc.xml,v 1.11 2004/08/04 23:59:11 jurka Exp $ -->
+<!--
+  Copyright (c) 2004, PostgreSQL Global Development Group
+  $PostgreSQL$
+-->
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 
