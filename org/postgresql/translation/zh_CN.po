@@ -1,13 +1,13 @@
 # Simplified Chinese message translation for the PostgreSQL JDBC driver
 # This file is distributed under the same license as the package.
 #
-# $PostgreSQL: pgjdbc/org/postgresql/translation/zh_cn.po,v 1.0 2005/03/22 11:35:26 jurka Exp $
+# $PostgreSQL$
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PostgreSQL JDBC Driver 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-17 10:42-0700\n"
+"POT-Creation-Date: 2005-05-17 10:40-0700\n"
 "PO-Revision-Date: 2005-05-16 17:32+0800\n"
 "Last-Translator: zelime <zelime@126.com>\n"
 "Language-Team: Simple Chinese\n"
@@ -19,24 +19,14 @@ msgstr ""
 msgid "Error loading default settings from driverconfig.properties"
 msgstr "从driverconfig.properties装载默认设置失败。"
 
-#: org/postgresql/Driver.java.in:263 org/postgresql/Driver.java.in:327
+#: org/postgresql/Driver.java.in:249
 #: org/postgresql/jdbc2/AbstractJdbc2Statement.java:1798
 msgid ""
 "Something unusual has occured to cause the driver to fail. Please report "
 "this exception."
 msgstr "有些异常导致驱动发生错误，请报告这个错误。"
 
-#: org/postgresql/Driver.java.in:335
-#, fuzzy
-msgid "Connection attempt timed out."
-msgstr "连接尝试失败。"
-
-#: org/postgresql/Driver.java.in:343
-#, fuzzy
-msgid "Interrupted while attempting to connect."
-msgstr "建立SSL连接时有错误发生。"
-
-#: org/postgresql/Driver.java.in:711
+#: org/postgresql/Driver.java.in:577
 #, fuzzy, java-format
 msgid "Method {0} is not yet implemented."
 msgstr "该方法尚未实现。"
@@ -46,7 +36,7 @@ msgstr "该方法尚未实现。"
 msgid "A connection could not be made using the requested protocol {0}."
 msgstr "没有该请求协议{0}的合适连接"
 
-#: org/postgresql/core/PGStream.java:472
+#: org/postgresql/core/PGStream.java:466
 #, java-format
 msgid "Premature end of input stream, expected {0} bytes, but only read {1}."
 msgstr "输入流过早结束，预期{0}字节，但是只读到{1}。"
@@ -82,6 +72,7 @@ msgid "An error occured while setting up the SSL connection."
 msgstr "建立SSL连接时有错误发生。"
 
 #: org/postgresql/core/v2/ConnectionFactoryImpl.java:221
+#: org/postgresql/core/v3/ConnectionFactoryImpl.java:275
 #, java-format
 msgid "Connection rejected: {0}."
 msgstr "连接被拒绝:{0}"
@@ -118,6 +109,7 @@ msgid "Protocol error.  Session setup failed."
 msgstr "协议错误,Session建立失败。"
 
 #: org/postgresql/core/v2/ConnectionFactoryImpl.java:340
+#: org/postgresql/core/v3/ConnectionFactoryImpl.java:443
 #, java-format
 msgid "Backend start-up failed: {0}."
 msgstr "后端启动失败：{0}。"
@@ -149,7 +141,7 @@ msgid "No value specified for parameter {0}."
 msgstr "没有指定参数{0}的值。"
 
 #: org/postgresql/core/v2/QueryExecutorImpl.java:72
-#: org/postgresql/core/v2/QueryExecutorImpl.java:337
+#: org/postgresql/core/v2/QueryExecutorImpl.java:310
 #: org/postgresql/core/v3/QueryExecutorImpl.java:372
 #: org/postgresql/core/v3/QueryExecutorImpl.java:418
 #, java-format
@@ -165,28 +157,24 @@ msgstr ""
 
 #: org/postgresql/core/v2/QueryExecutorImpl.java:118
 #: org/postgresql/core/v2/QueryExecutorImpl.java:129
-#: org/postgresql/core/v2/QueryExecutorImpl.java:174
-#: org/postgresql/core/v2/QueryExecutorImpl.java:369
+#: org/postgresql/core/v2/QueryExecutorImpl.java:342
 #: org/postgresql/core/v3/QueryExecutorImpl.java:201
 #: org/postgresql/core/v3/QueryExecutorImpl.java:340
 #: org/postgresql/core/v3/QueryExecutorImpl.java:462
 #: org/postgresql/core/v3/QueryExecutorImpl.java:474
-#: org/postgresql/core/v3/QueryExecutorImpl.java:551
-#: org/postgresql/core/v3/QueryExecutorImpl.java:1439
+#: org/postgresql/core/v3/QueryExecutorImpl.java:1411
 msgid "An I/O error occured while sending to the backend."
 msgstr "往后端传送时发生I/O错误"
 
-#: org/postgresql/core/v2/QueryExecutorImpl.java:170
-#: org/postgresql/core/v2/QueryExecutorImpl.java:225
-#: org/postgresql/core/v2/QueryExecutorImpl.java:236
-#: org/postgresql/core/v3/QueryExecutorImpl.java:547
-#: org/postgresql/core/v3/QueryExecutorImpl.java:605
+#: org/postgresql/core/v2/QueryExecutorImpl.java:198
+#: org/postgresql/core/v2/QueryExecutorImpl.java:209
+#: org/postgresql/core/v3/QueryExecutorImpl.java:577
 #, java-format
 msgid "Unknown Response Type {0}."
 msgstr "未知的响应类型{0}"
 
-#: org/postgresql/core/v2/QueryExecutorImpl.java:578
-#: org/postgresql/core/v3/QueryExecutorImpl.java:1541
+#: org/postgresql/core/v2/QueryExecutorImpl.java:551
+#: org/postgresql/core/v3/QueryExecutorImpl.java:1513
 #, java-format
 msgid "Unable to interpret the update count in command completion tag: {0}."
 msgstr "不能解释命令完成标签的更新数目：{0}。"
@@ -199,14 +187,14 @@ msgstr "字符串参数不允许0字节。"
 msgid "Unable to bind parameter values for statement."
 msgstr "不能绑定statement的参数值"
 
-#: org/postgresql/core/v3/QueryExecutorImpl.java:808
+#: org/postgresql/core/v3/QueryExecutorImpl.java:780
 #, java-format
 msgid ""
 "Bind message length {0} too long.  This can be caused by very large or "
 "incorrect length specifications on InputStream parameters."
 msgstr "参数InputStream的长度{0}规格不正确。"
 
-#: org/postgresql/core/v3/QueryExecutorImpl.java:1323
+#: org/postgresql/core/v3/QueryExecutorImpl.java:1295
 #, fuzzy, java-format
 msgid ""
 "The server''s client_encoding parameter was changed to {0}. The JDBC driver "
@@ -215,7 +203,7 @@ msgstr ""
 "服务器的client_encoding参数被更改为{0}。JDBC驱动要求client_encoding是UNICODE"
 "才能正确操作。"
 
-#: org/postgresql/core/v3/QueryExecutorImpl.java:1330
+#: org/postgresql/core/v3/QueryExecutorImpl.java:1302
 #, fuzzy, java-format
 msgid ""
 "The server''s DateStyle parameter was changed to {0}. The JDBC driver "
@@ -223,7 +211,7 @@ msgid ""
 msgstr ""
 "服务器的DataStyle参数被改成{0}，JDBC驱动要求DateStyle以ISO开头才能正常操作"
 
-#: org/postgresql/core/v3/QueryExecutorImpl.java:1384
+#: org/postgresql/core/v3/QueryExecutorImpl.java:1356
 msgid "The driver currently does not support COPY operations."
 msgstr "驱动目前不支持COPY的操作。"
 
@@ -295,67 +283,64 @@ msgstr ""
 msgid "The array index is out of range: {0}, number of elements: {1}."
 msgstr "阵列索引溢出：{0}，长度：{1}。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2BlobClob.java:180
+#: org/postgresql/jdbc2/AbstractJdbc2Blob.java:46
 msgid "LOB positioning offsets start at 1."
 msgstr ""
 
-#: org/postgresql/jdbc2/AbstractJdbc2BlobClob.java:184
-#, java-format
-msgid "PostgreSQL LOBs can only index to: {0}"
-msgstr ""
-
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:197
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:198
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:950
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:994
 #: org/postgresql/jdbc2/AbstractJdbc2Statement.java:222
 #: org/postgresql/jdbc2/AbstractJdbc2Statement.java:241
-#: org/postgresql/jdbc2/TypeInfoCache.java:141
-#: org/postgresql/jdbc2/TypeInfoCache.java:177
 msgid "No results were returned by the query."
 msgstr "查询没有结果返回"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:211
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:212
 #: org/postgresql/jdbc2/AbstractJdbc2Statement.java:265
 #: org/postgresql/jdbc2/AbstractJdbc2Statement.java:283
 #: org/postgresql/jdbc2/AbstractJdbc2Statement.java:2360
 msgid "A result was returned when none was expected."
 msgstr "返回预期结果。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:404
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:410
 #, java-format
 msgid "Failed to create object for: {0}."
 msgstr "为{0}建立对象失败"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:455
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:429
+#, java-format
+msgid "The class {0} does not implement org.postgresql.util.PGobject."
+msgstr "类{0}没有实现org.postgresql.util.PGobject。"
+
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:470
 #, java-format
 msgid "Unable to load the class {0} responsible for the datatype {1}"
 msgstr "因为数据类型{1}导致不能装载类{0}"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:546
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:561
 msgid ""
 "Cannot change transaction read-only property in the middle of a transaction."
 msgstr "无法改变事务处理中的只读事务属性。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:722
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:737
 msgid ""
 "Cannot change transaction isolation level in the middle of a transaction."
 msgstr "无法改变处理中的事务孤立等级。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:727
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:742
 #, java-format
 msgid "Transaction isolation level {0} not supported."
 msgstr "不支持事务的孤立等级{0}。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:891
+#: org/postgresql/jdbc2/AbstractJdbc2Connection.java:906
 msgid "Unable to translate data into the desired encoding."
 msgstr "无法把数据转化成目标编码。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java:66
-#, fuzzy
-msgid ""
-"Unable to determine a value for MaxIndexKeys due to missing system catalog "
-"data."
+#: org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java:61
+msgid "Unable to find datatypes oid and oidvector in the system catalogs."
 msgstr "在系统catalog中找不到oid和oidvector的数据类型。"
 
-#: org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java:89
+#: org/postgresql/jdbc2/AbstractJdbc2DatabaseMetaData.java:84
 msgid "Unable to find name datatype in the system catalogs."
 msgstr "在系统目录中找不到数据类型的名称。"
 
@@ -718,11 +703,6 @@ msgid ""
 "Infinite value found for timestamp/date. This cannot be represented as time."
 msgstr ""
 
-#: org/postgresql/jdbc2/TypeInfoCache.java:98
-#, java-format
-msgid "The class {0} does not implement org.postgresql.util.PGobject."
-msgstr "类{0}没有实现org.postgresql.util.PGobject。"
-
 #: org/postgresql/jdbc3/AbstractJdbc3Connection.java:59
 #, java-format
 msgid "Unknown ResultSet holdability setting: {0}."
@@ -787,69 +767,54 @@ msgstr "大对象不能在自动提交的模式中使用"
 msgid "The SSLSocketFactory class provided {0} could not be instantiated."
 msgstr "SSLSocketFactory 类提供的{0}不能被实例化。"
 
-#: org/postgresql/util/PGInterval.java:153
-#, fuzzy
-msgid "Conversion of interval failed"
-msgstr "money转换失败"
-
 #: org/postgresql/util/PGmoney.java:75
 msgid "Conversion of money failed."
 msgstr "money转换失败"
 
-#: org/postgresql/util/PSQLException.java.in:58
+#: org/postgresql/util/PSQLException.java.in:45
 #, java-format
 msgid "Exception: {0}"
 msgstr "Exception：{0}"
 
-#: org/postgresql/util/PSQLException.java.in:59
+#: org/postgresql/util/PSQLException.java.in:46
 msgid "Stack Trace:"
 msgstr ""
 
-#: org/postgresql/util/PSQLException.java.in:61
+#: org/postgresql/util/PSQLException.java.in:48
 msgid "End of Stack Trace"
 msgstr ""
 
-#: org/postgresql/util/PSQLException.java.in:69
+#: org/postgresql/util/PSQLException.java.in:56
 #, java-format
 msgid "Exception generating stacktrace for: {0} encountered: {1}"
 msgstr ""
 
-#: org/postgresql/util/ServerErrorMessage.java:156
+#: org/postgresql/util/ServerErrorMessage.java:94
 #, java-format
 msgid "Detail: {0}"
 msgstr "Detail: {0}"
 
-#: org/postgresql/util/ServerErrorMessage.java:159
+#: org/postgresql/util/ServerErrorMessage.java:97
 #, java-format
 msgid "Hint: {0}"
 msgstr "Hint: {0}"
 
-#: org/postgresql/util/ServerErrorMessage.java:162
+#: org/postgresql/util/ServerErrorMessage.java:100
 #, java-format
 msgid "Position: {0}"
 msgstr "Position: {0}"
 
-#: org/postgresql/util/ServerErrorMessage.java:165
+#: org/postgresql/util/ServerErrorMessage.java:103
 #, java-format
 msgid "Where: {0}"
 msgstr "Where: {0}"
 
-#: org/postgresql/util/ServerErrorMessage.java:171
-#, java-format
-msgid "Internal Query: {0}"
-msgstr ""
-
-#: org/postgresql/util/ServerErrorMessage.java:174
-#, fuzzy, java-format
-msgid "Internal Position: {0}"
-msgstr "Position: {0}"
-
-#: org/postgresql/util/ServerErrorMessage.java:180
+#: org/postgresql/util/ServerErrorMessage.java:111
 #, java-format
 msgid "Location: File: {0}, Routine: {1}, Line: {2}"
 msgstr "位置：文件：{0}，常规：{1}，行：{2}"
 
-#: org/postgresql/util/ServerErrorMessage.java:183
+#: org/postgresql/util/ServerErrorMessage.java:114
 #, java-format
 msgid "Server SQLState: {0}"
 msgstr "服务器 SQLState:{0}"
