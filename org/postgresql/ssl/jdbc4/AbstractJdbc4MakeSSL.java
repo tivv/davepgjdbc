@@ -3,11 +3,11 @@
 * Copyright (c) 2004-2011, PostgreSQL Global Development Group
 *
 * IDENTIFICATION
-*   $PostgreSQL: pgjdbc/org/postgresql/ssl/MakeSSL.java,v 1.8 2011/08/02 13:50:28 davecramer Exp $
+*   $PostgreSQL: pgjdbc/org/postgresql/ssl/MakeSSL.java,v 1.9 2011/11/17 11:27:51 davecramer Exp $
 *
 *-------------------------------------------------------------------------
 */
-package org.postgresql.ssl;
+package org.postgresql.ssl.jdbc4;
 
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -25,7 +25,7 @@ import org.postgresql.util.GT;
 import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
 
-public class MakeSSL {
+public class AbstractJdbc4MakeSSL {
   
     /**
      * Instantiates a class using the appropriate constructor.
@@ -92,7 +92,7 @@ public class MakeSSL {
         String classname = info.getProperty("sslfactory");
         if (classname == null)
         {
-          //If sslmode is set, use the libpg compatible factory
+          //If sslmode is set, use the libp compatible factory
           if (sslmode!=null)
           {
             factory = new LibPQFactory(info);

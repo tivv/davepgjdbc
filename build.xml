@@ -8,7 +8,7 @@
 
   This file now requires Ant 1.4.1.  2002-04-18
 
-  $PostgreSQL: pgjdbc/build.xml,v 1.90 2011/09/22 12:53:20 davecramer Exp $
+  $PostgreSQL: pgjdbc/build.xml,v 1.92 2011/12/14 18:49:19 davecramer Exp $
 
 -->
 
@@ -170,7 +170,8 @@
        <exclude name="${package}/jdcb4/Jdbc4*.java" unless="jdbc4any" />
 
        <!-- ssl -->
-       <include name="${package}/ssl/*.java" />
+       <include name="${package}/ssl/jdbc4/*.java" if="jdbc4any"/>
+       <include name="${package}/ssl/jdbc3/*.java" if="jdbc3any"/>
 
        <!-- gss -->
        <include name="${package}/gss/*.java" />
@@ -280,7 +281,13 @@
     <condition property="xadsclass" value="org.postgresql.xa.jdbc4.AbstractJdbc4XADataSource">
         <equals arg1="${jdbc4any}" arg2="true" />
     </condition>
-
+    <condition property="makesslclass" value="org.postgresql.ssl.jdbc3.AbstractJdbc3MakeSSL">
+        <equals arg1="${jdbc3any}" arg2="true" />
+    </condition>
+    <condition property="makesslclass" value="org.postgresql.ssl.jdbc4.AbstractJdbc4MakeSSL">
+        <equals arg1="${jdbc4any}" arg2="true" />
+    </condition>
+	
     <!-- Some defaults -->
     <filter token="MAJORVERSION" value="${major}" />
     <filter token="MINORVERSION" value="${minor}" />
@@ -293,6 +300,7 @@
     <filter token="POOLED_CONN_CLASS" value="${pooledconnclass}" />
     <filter token="CONN_POOL_DS_CLASS" value="${connpooldsclass}" />
     <filter token="DEF_PGPORT" value="${def_pgport}" />
+    <filter token="MAKE_SSL_CLASS" value="${makesslclass}"/>
 
      <fail unless="major" message="'major' undefined. Please follow the directions in README."/>
      <fail unless="minor" message="'minor' undefined. Please follow the directions in README."/>
@@ -326,6 +334,10 @@
     <copy file="${package}/xa/PGXADataSource.java.in"
           overwrite="true"
           tofile="${package}/xa/PGXADataSource.java"
+          filtering="yes" />
+    <copy file="${package}/ssl/MakeSSL.java.in"
+          overwrite="true"
+          tofile="${package}/ssl/MakeSSL.java"
           filtering="yes" />
 
   <echo message="Configured build for the ${edition} edition driver." />
