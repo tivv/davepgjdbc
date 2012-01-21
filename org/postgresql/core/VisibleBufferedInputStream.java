@@ -27,12 +27,12 @@ public class VisibleBufferedInputStream extends InputStream {
      * first fill the buffer and serve the bytes from there. Larger
      * reads are directly done to the provided byte array.
      */
-    private static final int MINIMUM_READ = 1024;
+    static final int MINIMUM_READ = 1024;
     
     /**
      * In how large spans is the C string zero-byte scanned.
      */
-    private static final int STRING_SCAN_SPAN = 1024;
+    static final int STRING_SCAN_SPAN = 1024;
 
     /**
      * The wrapped input stream.

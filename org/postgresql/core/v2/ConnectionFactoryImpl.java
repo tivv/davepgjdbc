@@ -17,7 +17,6 @@ import java.sql.*;
 import java.io.IOException;
 import java.net.ConnectException;
 
-import org.postgresql.Driver;
 import org.postgresql.core.*;
 import org.postgresql.util.PSQLException;
 import org.postgresql.util.PSQLState;
@@ -81,11 +80,11 @@ public class ConnectionFactoryImpl extends ConnectionFactory {
         PGStream newStream = null;
         try
         {
-            newStream = new PGStream(host, port);
+            newStream = new PGRegularStream(host, port);
 
             // Construct and send an ssl startup packet if requested.
             if (trySSL)
-                newStream = enableSSL(newStream, requireSSL, info, logger);
+                newStream = newStream.enableSSL(requireSSL, info, logger);
             
             
             // Set the socket timeout if the "socketTimeout" property has been set.
@@ -155,55 +154,6 @@ public class ConnectionFactoryImpl extends ConnectionFactory {
             }
 
             throw se;
-        }
-    }
-
-    private PGStream enableSSL(PGStream pgStream, boolean requireSSL, Properties info, Logger logger) throws IOException, SQLException {
-        if (logger.logDebug())
-            logger.debug(" FE=> SSLRequest");
-
-        // Send SSL request packet
-        pgStream.SendInteger4(8);
-        pgStream.SendInteger2(1234);
-        pgStream.SendInteger2(5679);
-        pgStream.flush();
-
-        // Now get the response from the backend, one of N, E, S.
-        int beresp = pgStream.ReceiveChar();
-        switch (beresp)
-        {
-        case 'E':
-            if (logger.logDebug())
-                logger.debug(" <=BE SSLError");
-
-            // Server doesn't even know about the SSL handshake protocol
-            if (requireSSL)
-                throw new PSQLException(GT.tr("The server does not support SSL."), PSQLState.CONNECTION_REJECTED);
-
-            // We have to reconnect to continue.
-            pgStream.close();
-            return new PGStream(pgStream.getHost(), pgStream.getPort());
-
-        case 'N':
-            if (logger.logDebug())
-                logger.debug(" <=BE SSLRefused");
-
-            // Server does not support ssl
-            if (requireSSL)
-                throw new PSQLException(GT.tr("The server does not support SSL."), PSQLState.CONNECTION_REJECTED);
-
-            return pgStream;
-
-        case 'S':
-            if (logger.logDebug())
-                logger.debug(" <=BE SSLOk");
-
-            // Server supports ssl
-            org.postgresql.ssl.MakeSSL.convert(pgStream, info, logger);
-            return pgStream;
-
-        default:
-            throw new PSQLException(GT.tr("An error occured while setting up the SSL connection."), PSQLState.PROTOCOL_VIOLATION);
         }
     }
 

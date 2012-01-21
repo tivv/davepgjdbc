@@ -724,7 +724,7 @@ public abstract class AbstractJdbc2Statement implements BaseStatement
         	
         };
         
-        Driver.addTimerTask( cancelTimer, seconds);
+        connection.addTimerTask( cancelTimer, seconds * 1000);
         timeout = seconds;
     }
 

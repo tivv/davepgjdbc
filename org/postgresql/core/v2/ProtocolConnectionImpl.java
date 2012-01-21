@@ -91,7 +91,7 @@ class ProtocolConnectionImpl implements ProtocolConnection {
             if (logger.logDebug())
                 logger.debug(" FE=> CancelRequest(pid=" + cancelPid + ",ckey=" + cancelKey + ")");
 
-            cancelStream = new PGStream(pgStream.getHost(), pgStream.getPort());
+            cancelStream = pgStream.reconnect(false);
             cancelStream.SendInteger4(16);
             cancelStream.SendInteger2(1234);
             cancelStream.SendInteger2(5678);
@@ -209,6 +209,10 @@ class ProtocolConnectionImpl implements ProtocolConnection {
     public boolean getIntegerDateTimes() {
         // not supported in v2 protocol
         return false;
+    }
+
+    public void addTimerTask(Runnable timerTask, long milliSeconds) {
+        pgStream.addTimerTask(timerTask, milliSeconds);
     }
 
     private String serverVersion;

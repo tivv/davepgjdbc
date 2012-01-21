@@ -1227,4 +1227,8 @@ public abstract class AbstractJdbc2Connection implements BaseConnection
     public boolean binaryTransferSend(int oid) {
         return useBinarySendForOids.get(oid);
     }
+
+    public void addTimerTask(Runnable timerTask, long milliSeconds) {
+        protoConnection.addTimerTask(timerTask, milliSeconds);
+    }
 }

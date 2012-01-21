@@ -156,4 +156,11 @@ public interface BaseConnection extends PGConnection, Connection
      * @return True for binary transfer, false for text transfer.
      */
     public boolean binaryTransferSend(int oid);
+
+    /**
+     * Adds task to be executed in this connection
+     * @param timerTask
+     * @param milliSeconds
+     */
+    public void addTimerTask(Runnable timerTask, long milliSeconds);
 }

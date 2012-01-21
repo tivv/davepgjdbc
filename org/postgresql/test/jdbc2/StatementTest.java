@@ -491,8 +491,8 @@ public class StatementTest extends TestCase
     			{
     				fail("Query timeout should have occured and cleaned this up");
     			}
-    		}, 1000);
-    		stmt.setQueryTimeout(100);
+    		}, 5000);
+    		stmt.setQueryTimeout(1);
     		stmt.execute("select pg_sleep(999999999999999)");
     		
     	}catch( SQLException sqle )

@@ -148,4 +148,11 @@ public interface ProtocolConnection {
      * @return the server integer_datetime setting.
      */
     public boolean getIntegerDateTimes();
+
+    /**
+     * Adds task to be executed in this connection
+     * @param timerTask
+     * @param milliSeconds
+     */
+    public void addTimerTask(Runnable timerTask, long milliSeconds);
 }

@@ -91,7 +91,7 @@ class ProtocolConnectionImpl implements ProtocolConnection {
             if (logger.logDebug())
                 logger.debug(" FE=> CancelRequest(pid=" + cancelPid + ",ckey=" + cancelKey + ")");
 
-            cancelStream = new PGStream(pgStream.getHost(), pgStream.getPort());
+            cancelStream = pgStream.reconnect(false);
             cancelStream.SendInteger4(16);
             cancelStream.SendInteger2(1234);
             cancelStream.SendInteger2(5678);
@@ -218,7 +218,11 @@ class ProtocolConnectionImpl implements ProtocolConnection {
         return integerDateTimes;
     }
 
-   /**
+    public void addTimerTask(Runnable timerTask, long milliSeconds) {
+        pgStream.addTimerTask(timerTask, milliSeconds);
+    }
+
+    /**
      * True if server uses integers for date and time fields. False if
      * server uses double.
      */
